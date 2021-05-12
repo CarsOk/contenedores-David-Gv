@@ -17,7 +17,7 @@ class PaginaPrincipal extends StatelessWidget {
                   accountName: Text('David Garcia'),
                   accountEmail: Text('Davidgarcia@Starblock.co'),
                   currentAccountPicture: CircleAvatar(
-                      backgroundColor: Colors.amber,
+                      backgroundColor: Colors.grey,
                       child: Text(
                         'D',
                         style: TextStyle(fontSize: 30.0),
@@ -42,12 +42,9 @@ class PaginaPrincipal extends StatelessWidget {
                     fontSize: 14.0,
                     color: Colors.black)),
             Text('Esta aplicacion se encuentra en desarrollo beta',
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 20.0,
-                ),
+                style: TextStyle(color: Colors.red, fontSize: 20.0),
                 textAlign: TextAlign.center),
-            Icon(Icons.add_alert, size: 45.0, color: Colors.red),
+            Image.asset('imagen/LogoSB.png', width: 250.0),
           ],
         )));
   }
