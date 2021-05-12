@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github_programa/my_favorites_icons.dart';
 
 class PaginaPrincipal extends StatelessWidget {
   @override
@@ -17,9 +18,9 @@ class PaginaPrincipal extends StatelessWidget {
                   accountName: Text('David Garcia'),
                   accountEmail: Text('Davidgarcia@Starblock.co'),
                   currentAccountPicture: CircleAvatar(
-                      backgroundColor: Colors.grey,
+                      backgroundColor: Colors.black,
                       child: Text(
-                        'D',
+                        'DG',
                         style: TextStyle(fontSize: 30.0),
                       ))),
               ListTile(
@@ -45,6 +46,17 @@ class PaginaPrincipal extends StatelessWidget {
                 style: TextStyle(color: Colors.red, fontSize: 20.0),
                 textAlign: TextAlign.center),
             Image.asset('imagen/LogoSB.png', width: 250.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('imagen/Facebook.png', width: 45.0),
+                SizedBox(width: 25.0),
+                Image.asset('imagen/Instagram.png', width: 47.0),
+                SizedBox(width: 25.0),
+                Icon(MyFavoritesIcons.telegram,
+                    size: 45.0, color: Colors.blue[400])
+              ],
+            )
           ],
         )));
   }
