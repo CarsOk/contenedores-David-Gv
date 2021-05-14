@@ -34,14 +34,14 @@ class PaginaPrincipal extends StatelessWidget {
             ],
           ),
         ),
-        body: Center(
-            child: Column(
+        body: ListView(
           children: [
             Text('Version 1.0.0 BETA',
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontSize: 14.0,
-                    color: Colors.black)),
+                    color: Colors.black),
+                textAlign: TextAlign.center),
             Text('Esta aplicacion se encuentra en desarrollo beta',
                 style: TextStyle(color: Colors.red, fontSize: 20.0),
                 textAlign: TextAlign.center),
@@ -58,6 +58,6 @@ class PaginaPrincipal extends StatelessWidget {
               ],
             )
           ],
-        )));
+        ));
   }
 }
