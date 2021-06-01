@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:starblock/Icons/my_news_icons.dart';
+import 'package:http/http.dart' as http;
 
+import 'package:starblock/Icons/my_news_icons.dart';
 import 'package:starblock/models/Comment_model.dart';
 
 class CommentPrueba extends StatelessWidget {
@@ -12,6 +13,19 @@ class CommentPrueba extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () async {
+                final respuesta = await borrarComentario(comment.id);
+                if (respuesta) {
+                  print("Borrado Correctamente");
+                  Navigator.pop(context);
+                } else {
+                  print("No Borrado");
+                }
+              })
+        ],
         title: new Text('Mi informacion',
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center),
@@ -73,5 +87,17 @@ class CommentPrueba extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<bool> borrarComentario(int id) async {
+    final url = Uri.parse('https://jsonplaceholder.typicode.com/comments/$id');
+    final respuesta = await http.delete(url);
+    print('Response status: ${respuesta.statusCode}');
+    print('Response body: ${respuesta.body}');
+    if (respuesta.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
