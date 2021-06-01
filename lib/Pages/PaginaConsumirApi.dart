@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:starblock/Pages/PaginaPostApi.dart';
+import 'package:starblock/Pages/PaginaPruebaInfoLista.dart';
 import 'package:starblock/models/Comment_model.dart';
 
 class ConsumirApi extends StatelessWidget {
@@ -47,10 +48,19 @@ class ConsumirApi extends StatelessWidget {
           return Column(
             children: [
               ListTile(
-                title: Text(comment.email),
-                leading: Icon(Icons.email, color: Colors.black),
-                subtitle: Text(comment.id.toString()),
-              ),
+                  title: Text(comment.email),
+                  leading: Icon(Icons.email, color: Colors.black),
+                  subtitle: Text(comment.id.toString()),
+                  minLeadingWidth: 30.0,
+                  trailing:
+                      Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    Icon(Icons.arrow_forward, color: Colors.black),
+                  ]),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            CommentPrueba(comment)));
+                  }),
               Divider(),
             ],
           );

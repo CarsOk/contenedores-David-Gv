@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:starblock/Icons/my_news_icons.dart';
 
-import 'package:starblock/models/Comment_postApi_model.dart';
+import 'package:starblock/models/Comment_model.dart';
 
-class CommentSaved extends StatelessWidget {
-  final CommentTwo commentTwo;
+class CommentPrueba extends StatelessWidget {
+  final Comment comment;
 
-  CommentSaved(this.commentTwo);
+  CommentPrueba(this.comment);
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +16,8 @@ class CommentSaved extends StatelessWidget {
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          ListTile(
-            title: Text(
-              'Id del mensaje',
-              style: TextStyle(
-                  color: Colors.red[800], fontWeight: FontWeight.w400),
-            ),
-            leading: Icon(Icons.note_add, color: Colors.black),
-            subtitle: Text(
-              commentTwo.postId,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Divider(),
           ListTile(
             title: Text(
               'Nombre',
@@ -39,7 +26,20 @@ class CommentSaved extends StatelessWidget {
             ),
             leading: Icon(MyNewsIcons.user, color: Colors.black),
             subtitle: Text(
-              commentTwo.name,
+              comment.name,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Descripcion',
+              style: TextStyle(
+                  color: Colors.red[800], fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(Icons.note_add, color: Colors.black),
+            subtitle: Text(
+              comment.body,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -52,20 +52,20 @@ class CommentSaved extends StatelessWidget {
             ),
             leading: Icon(Icons.email, color: Colors.black),
             subtitle: Text(
-              commentTwo.email,
+              comment.email,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           Divider(),
           ListTile(
             title: Text(
-              'Descripcion',
+              'Id del mensaje',
               style: TextStyle(
                   color: Colors.red[800], fontWeight: FontWeight.w400),
             ),
-            leading: Icon(MyNewsIcons.attachment, color: Colors.black),
+            leading: Icon(MyNewsIcons.address_book, color: Colors.black),
             subtitle: Text(
-              commentTwo.body,
+              comment.id.toString(),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),

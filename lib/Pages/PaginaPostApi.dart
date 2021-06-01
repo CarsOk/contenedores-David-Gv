@@ -17,7 +17,7 @@ class PostApi extends StatelessWidget {
         ),
         body: Container(
           padding: EdgeInsets.only(left: 15.0, right: 15.0),
-          child: Column(
+          child: ListView(
             children: [
               Text('Por favor diligenciar el formulario con sus datos',
                   style: TextStyle(
@@ -56,6 +56,7 @@ class PostApi extends StatelessWidget {
                       final snackBar =
                           SnackBar(content: Text('Informacion Guardada'));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
